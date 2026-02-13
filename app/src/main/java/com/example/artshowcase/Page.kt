@@ -7,7 +7,7 @@ import androidx.annotation.StringRes
 data class Page(
     @DrawableRes val image:Int,
     @StringRes val description0: Int,
-    @StringRes val description: Int
+    @StringRes val name: Int
 
 ) {
 }

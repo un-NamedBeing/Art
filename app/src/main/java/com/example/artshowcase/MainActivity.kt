@@ -1,15 +1,12 @@
 package com.example.artshowcase
 
-import android.content.res.Resources
 import android.os.Bundle
-import android.text.Layout
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,11 +19,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -34,7 +34,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.artshowcase.ui.theme.ArtShowCaseTheme
@@ -47,6 +46,7 @@ class MainActivity : ComponentActivity() {
             ArtShowCaseTheme {
                 Scaffold (Modifier.fillMaxSize()) {innerPadding->
                     ArtApp(
+                        DataSource().loadData(),
                         Modifier
                             .fillMaxSize()
                             .padding(horizontal = 18.dp)
@@ -59,27 +59,38 @@ class MainActivity : ComponentActivity() {
 }
 @Composable
 fun ArtApp(
+    pageList: List<Page>,
     modifier: Modifier= Modifier
 ){
+    val listLastIndex =pageList.size-1
+    var currentIndex by remember { mutableStateOf(0) }
     Box(modifier) {
         Column(
             Modifier.align(Alignment.Center),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ArtImage(R.drawable.picture_2026_01_31_07_03_28)
+            ArtImage(pageList[currentIndex].image)
             Spacer(Modifier.height(32.dp))
             DescriptionOfImage(
-                R.string.love_birds_des,
-                R.string.love_birds,
+                pageList[currentIndex].description0,
+                pageList[currentIndex].name,
                 Modifier
             )
 
 
         }
         ButtonRow(
-            {},
-            {},
+            {
+                if(currentIndex>0){
+                    currentIndex--
+                }
+            },
+            {
+                if(currentIndex< listLastIndex){
+                    currentIndex++
+                }
+            },
             Modifier
                 .align(Alignment.BottomCenter)
                 .padding(bottom = 8.dp)
@@ -110,7 +121,7 @@ fun ArtImage(
 @Composable
 fun DescriptionOfImage(
     @StringRes des0: Int,
-    @StringRes des1:Int,
+    @StringRes name:Int,
     modifier: Modifier= Modifier
 ){
     Surface(
@@ -125,7 +136,7 @@ fun DescriptionOfImage(
 
         ) {
             Text(
-                stringResource(des1),
+                stringResource(name),
                 fontWeight = FontWeight.Bold
             )
             Text(
@@ -173,9 +184,9 @@ fun ButtonRow(
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun ArtPreview() {
     ArtShowCaseTheme {
-        ArtApp(
+        ArtApp( DataSource().loadData(),
             Modifier
                 .fillMaxSize()
                 .padding(horizontal = 18.dp)

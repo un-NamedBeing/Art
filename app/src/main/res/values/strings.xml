@@ -2,6 +2,8 @@
     <string name="app_name">Art Show case</string>
     <string name="love_birds">Love Birds</string>
     <string name="love_birds_des">They are among the smallest parrots, characterised by a stocky build, a short blunt tail, and a relatively large, sharp beak.</string>
+    <string name="cockatiel">Cockatiel</string>
+    <string name="cockatiel_des">small, crested member of the cockatoo family. Native to the semi-arid regions of Australia, these social birds are world-renowned as affectionate and intelligent household pets. </string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
 </resources>
