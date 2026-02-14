@@ -1,6 +1,6 @@
 Sources of images:
 
-![Art App Screenshot](https://1drv.ms/i/c/13c2931568d3c4a4/IQB1MYYIujF1SpqQ61tAdoSxASSmkjc_WpbmbbOhtPVZ8UQ?e=h19gHm)
+![Art App Screenshot](https://i.imgur.com/Fls1xgx.gif)
 
 
 1-https://macaulaylibrary.org/asset/63888951
