@@ -1,9 +1,14 @@
 <resources>
     <string name="app_name">Art Show case</string>
-    <string name="love_birds">Love Birds</string>
-    <string name="love_birds_des">They are among the smallest parrots, characterised by a stocky build, a short blunt tail, and a relatively large, sharp beak.</string>
-    <string name="cockatiel">Cockatiel</string>
-    <string name="cockatiel_des">small, crested member of the cockatoo family. Native to the semi-arid regions of Australia, these social birds are world-renowned as affectionate and intelligent household pets. </string>
+    <string name="basket_of_flowers">Basket of Flowers</string>
+    <string name="date_basket_of_flowers">(1622)</string>
+    <string name="balthasar_van_der_ast">Balthasar van der Ast</string>
+    <string name="date_the_mill">(1648)</string>
+    <string name="the_mill">The Mill</string>
+    <string name="rembrandt_van_rijn">Rembrandt van Rijn</string>
+    <string name="banquet_piece_with_mince_pie">Banquet Piece with Mince Pie</string>
+    <string name="date_banquet_piece_with_mince_pie">(1635)</string>
+    <string name="willem_claesz_heda">Willem Claesz Heda</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
 </resources>
